@@ -70,7 +70,7 @@ class KantGenerator:
 		"""
 		xrefs = {}
 		for xref in self.grammar.getElementsByTagName("xref"):
-			xrefs[xref.attribuetes["id"].value] = 1
+			xrefs[xref.attributes["id"].value] = 1
 		xrefs = xrefs.keys()
 		standaloneXrefs = [e for e in self.refs.keys() if e not in xrefs]
 		if not standaloneXrefs:

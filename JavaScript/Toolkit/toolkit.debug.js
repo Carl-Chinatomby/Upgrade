@@ -14,6 +14,7 @@ Logger that sends output to a div
 */
 toolkit.debug.DivLogger = function() {
 	//ENUMS
+	//MAKE THIS AN ARRAY/OBJECT SO WE CAN LOOP THROUGH THIS AND REMOVE COPY + PASTE BELOW
 	this.LEVEL_TRACE = 1;
 	this.LEVEL_DEBUG = 2;
 	this.LEVEL_INFO = 3;
@@ -99,5 +100,14 @@ toolkit.debug.DivLogger = function() {
 			"<div style='color:#" + this.LEVEL_FATAL_COLOR + ";'>" + "[FATAL] " + inMessage + "</div>";
 		}
 	}
-	
+}
+
+//Enumerates through all the properties of an object
+toolkit.debug.enumProps = function(inObj) {
+	var props = "";
+	var i;
+	for (i in inObj){
+		props += i = " = " + inObj[i] + "\n";
+	}
+	alert(props);
 }

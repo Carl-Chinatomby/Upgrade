@@ -32,19 +32,22 @@ Statuses.prototype.add = function(options){
 }
 
 var NewStatusView = function(options) {
-    var statuses = options. statuses
+    this.statuses = options.statuses;
     
-    $('#new-status form').submit(function(e) {
-        e.preventDefault();
-        statuses.add({
-            text: $('#new-status textarea').val(),
-            success: function(data) {
-                $('#statuses ul').append('<li>' + data.text + '</li>');
-                $('new-statuses textarea').val('');
-            }
-        });
-    });
+    var add = $.proxy(this.addStatus, this);
+    $('#new-status form').submit(add);
 }
+
+NewStatusView.prototype.addStatus = function (e) 
+    e.preventDefault();
+    statuses.add({
+        text: $('#new-status textarea').val(),
+        success: function(data) {
+            $('#statuses ul').append('<li>' + data.text + '</li>');
+            $('new-statuses textarea').val('');
+        }
+    });
+});
 
 $(document).ready(function() {
     var statuses = new Statuses();

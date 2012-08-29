@@ -40,14 +40,25 @@ var NewStatusView = function(options) {
 
 NewStatusView.prototype.addStatus = function (e) 
     e.preventDefault();
+
+    var that = this;
+
     statuses.add({
         text: $('#new-status textarea').val(),
         success: function(data) {
-            $('#statuses ul').append('<li>' + data.text + '</li>');
-            $('new-statuses textarea').val('');
+            that.appendStatus(data.text);
+            that.clearInput();
         }
     });
 });
+
+NewStatusView.prototype.appendStatus = function(text) {
+    $('#statuses ul').append('<li>' + text + '</li>');
+};
+
+NewStatusView.prototype.clearInput = function() {
+    $('#new-status textarea').val('');
+};
 
 $(document).ready(function() {
     var statuses = new Statuses();

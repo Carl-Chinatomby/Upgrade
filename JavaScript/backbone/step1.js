@@ -28,12 +28,13 @@ var Statuses = Backbone.Collection.extend({
 })
 
 var NewStatusView = Backbone.View.extend({
-    initialize: function(options) {
+    events: {
+        'submit form': 'addStatus'
+    },
 
+    initialize: function(options) {
         this.collection.on('add', this.clearInput, this);
 
-        var add = $.proxy(this.addStatus, this);
-        this.$('form').submit(add);
     },
 
     addStatus: function (e) 
@@ -50,11 +51,11 @@ var NewStatusView = Backbone.View.extend({
 
 var StatusesView = Backbone.View.extend({ 
     initialize: function(options) {
-        this.collection.on('add', this.appendStatus, this);
+        this.collection .on('add', this.appendStatus, this);
     },
 
     appendStatus: function(status) {
-        this.$('ul').append('<li>' + status.get("text") + '</li>');
+        this.$('ul').append('<li>' + status.escape("text") + '</li>');
     }
 
 });

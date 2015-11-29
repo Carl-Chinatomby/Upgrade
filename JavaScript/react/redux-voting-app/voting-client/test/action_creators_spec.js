@@ -1,7 +1,7 @@
 import {expect} from 'chai';
 import {fromJS} from 'immutable';
 
-import {setState, vote} from '../src/action_creators';
+import {setState, vote, next} from '../src/action_creators';
 
 describe('action_creators', () => {
 
@@ -25,9 +25,16 @@ describe('action_creators', () => {
     const entry = 'Trainspotting'
     const action = vote(entry)
 
-    expect(action).to.have.all.keys('type', 'entry');
+    expect(action).to.have.all.keys('type', 'entry', 'meta');
     expect(action.type).to.equal('VOTE');
     expect(action.entry).to.equal(entry);
   });
+
+  it('correctly formats NEXT action', () => {
+    const action = next();
+
+    expect(action).to.have.all.keys('meta', 'type');
+    expect(action.type).to.equal('NEXT');
+  })
 
 });

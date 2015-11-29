@@ -26,16 +26,22 @@ export function next(state) {
 
   } else {
     return state.merge({
-      vote: Map({ pair: entries.take(2) }),
+      vote: Map({
+        round: state.getIn(['vote', 'round'], 0) + 1,
+        pair: entries.take(2)
+      }),
       entries: entries.skip(2)
     });
   }
 }
 
 export function vote(voteState, entry) {
-  return voteState.updateIn(
-    ['tally', entry],
-    0,
-    tally => tally + 1
-  );
+  if (voteState.get('pair').includes(entry)) {
+    return voteState.updateIn(
+      ['tally', entry],
+      0,
+      tally => tally + 1
+    );
+  }
+  return voteState;
 }

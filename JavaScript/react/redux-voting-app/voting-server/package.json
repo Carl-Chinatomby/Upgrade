@@ -1,7 +1,7 @@
 {
   "name": "voting-server",
   "version": "1.0.0",
-  "description": "",
+  "description": "Voting server",
   "main": "index.js",
   "scripts": {
     "start": "babel-node index.js",

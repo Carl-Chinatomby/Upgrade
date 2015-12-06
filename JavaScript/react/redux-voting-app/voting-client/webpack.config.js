@@ -12,7 +12,7 @@ module.exports = {
       exclude: /node_modules/,
       loader: 'babel'
     }, {
-      test: /\.css%/,
+      test: /\.css$/,
       loader: 'style!css!autoprefixer?browsers=last 2 versions'
     }]
   },

@@ -6,6 +6,6 @@ startServer(store);
 
 store.dispatch({
   type: 'SET_ENTRIES',
-  entries: require('./entries.json')
+  entries: require('./fixtures/entries.json')
 });
 store.dispatch({type: 'NEXT'});

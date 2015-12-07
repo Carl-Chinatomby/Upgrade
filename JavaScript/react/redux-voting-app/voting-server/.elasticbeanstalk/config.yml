@@ -1,0 +1,11 @@
+branch-defaults:
+  default:
+    environment: voting-server-dev
+    group_suffix: null
+global:
+  application_name: voting-server
+  default_ec2_keyname: freetierkey
+  default_platform: Node.js
+  default_region: us-east-1
+  profile: eb-cli
+  sc: null

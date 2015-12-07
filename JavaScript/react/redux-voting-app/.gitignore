@@ -4,6 +4,6 @@
 !.elasticbeanstalk/*.cfg.yml
 !.elasticbeanstalk/*.global.yml
 !dist/fixtures/*
-*dist/index.js
-*dist/src/*
-*dist/test/*
+*voting-server/dist/index.js
+*voting-server/dist/src/*
+*voting-server/dist/test/*

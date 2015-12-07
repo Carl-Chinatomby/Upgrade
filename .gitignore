@@ -4,6 +4,3 @@
 *node_modules*
 *.log
 *bundle.js
-*dist/src/*
-*dist/index.js
-!*dist/fixtures/*

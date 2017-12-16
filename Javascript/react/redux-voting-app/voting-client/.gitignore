@@ -3,7 +3,3 @@
 .elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml
 !.elasticbeanstalk/*.global.yml
-!dist/fixtures/*
-*voting-server/dist/index.js
-*voting-server/dist/src/*
-*voting-server/dist/test/*

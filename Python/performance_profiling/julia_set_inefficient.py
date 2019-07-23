@@ -19,7 +19,7 @@ def timefn(fn):
 
 
 @timefn
-#@profile # used for line_profiler (kernprof)
+@profile # used for line_profiler (kernprof) and memory_profiler
 def calculate_z_serial_purepython(maxiter, zs, cs):
     """Calculate output list using Julia update rule"""
     output = [0] * len(zs)
@@ -34,6 +34,7 @@ def calculate_z_serial_purepython(maxiter, zs, cs):
     return output
 
 
+@profile # used for line_profiler (kernprof) and memory_profiler
 def calc_pure_python(desired_width, max_iterations):
     """Create a list of complex coordiantes (zs) and complex
     parameters (cs), build Julia set, and display"""

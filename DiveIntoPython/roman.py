@@ -94,7 +94,7 @@ class FromRomanBadInput(unittest.TestCase):
     def testTooManyRepeatedNumerals(self):
         """fromRoman should fail with too many repeated numerals"""
         for s in ('MMMM', 'DD', 'CCCC', 'LL', 'XXXX', 'VV', 'IIII'):
-            self.asertRaises(roman.InvalidRomanNumeralError, roman.fromRoman, s)
+            self.assertRaises(roman.InvalidRomanNumeralError, roman.fromRoman, s)
             
     def testRepeatedPairs(self):
         """fromRoman should fail with repeated pairs of numerals"""
@@ -105,7 +105,7 @@ class FromRomanBadInput(unittest.TestCase):
         """fromRoman should fail with malformed antecedents"""
         for s in ('IIMXCC', 'VX', 'DCM', 'CMM', 'IXIV',
                   'MCMC', 'XCX', 'IVI', 'LM', 'LD', 'LC'):
-            self.asertRaises(roman.InvalidRomanNumeralError, roman.fromRoman, s)
+            self.assertRaises(roman.InvalidRomanNumeralError, roman.fromRoman, s)
             
 class SanityCheck(unittest.TestCase):
     def testSanity(self):
